@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=”http://www.thymeleaf.org” xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>iview example</title>
+    <link rel="stylesheet" type="text/css" href="/static/vendor/iview/iview.min.css">
+</head>
+<body onload="disconnect()">
+<button id="connect" onclick="connect()">连接</button>
+<button id="disconnect" onclick="disconnect()" disabled="disabled">断开连接</button>
+<div id="inputDiv" style="margin-top:30px;">
+    <label>昵称：</label>
+    <input type="text" id="name"/><br/><br/>
+    <label>内容：</label>
+    <input type="text" id="content"/>
+    <button id="sendMessage" onclick="sendMessage()">发送</button>
+    <br/>
+
+    <div id="response" style="height: 400px;margin:5px;overflow: auto;border: 1px solid lightgray;"></div>
+</div>
+
+<script th:src="@{static/vendor/vue/vue.min.js}"></script>
+<script th:src="@{static/vendor/iview/iview.min.js}"></script>
+<script th:src="@{static/vendor/jquery/jquery-2.1.4.min.js}"></script>
+<script th:src="@{static/vendor/ws/sockjs.min.js}"></script>
+<script th:src="@{static/vendor/ws/stomp.min.js}"></script>
+<script th:src="@{static/js/ws/ws.js}"></script>
+</body>
+</html>

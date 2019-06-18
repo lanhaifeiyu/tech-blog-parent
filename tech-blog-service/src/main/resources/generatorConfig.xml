@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<properties resource="generator.properties"></properties>-->
+    <context id="MySqlTables" targetRuntime="MyBatis3">
+        <!-- 自动生成toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 自动生成equals方法和hashcode方法 -->
+        <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <plugin type="com.lhfeiyu.tech.blog.generator.MyCustomPlugin"/>
+
+        <!--注释 XXX 自定义注释会导致无法生成@mbg.generated，从而无法进行覆盖更新。 -->
+        <!--<commentGenerator type="com.lhfeiyu.tech.blog.generator.MySqlCommentGenerator">
+            <property name="author" value="wangaimin"></property>
+            <property name="dateFormat" value="yyyy/MM/dd HH:mm"></property>
+        </commentGenerator>-->
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/tech_blog?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=GMT%2B8"
+                        userId="root" password="root">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!--注释中使用数据库中的备注-->
+            <!--<property name="useInformationSchema" value="true"></property>-->
+        </jdbcConnection>
+
+
+        <!--This property is used to specify whether MyBatis Generator should force the use of java.math.BigDecimal for DECIMAL and NUMERIC fields, rather than substituting integral types when possible-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.lhfeiyu.tech.blog.model" targetProject="tech-blog-parent\tech-blog-service\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <!--generator module 中能访问到rootClass生成的model才会不重写BaseModel中的属性-->
+            <property name="rootClass" value="com.lhfeiyu.tech.blog.model.BaseModel"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.lhfeiyu.tech.blog.mapper" targetProject="tech-blog-parent\tech-blog-service\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lhfeiyu.tech.blog.mapper" targetProject="tech-blog-parent\tech-blog-service\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="" tableName="category" domainObjectName="Category" mapperName="CategoryMapper"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true" />-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
+            <!--<ignoreColumn column="FRED" />-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        </table>
+
+    </context>
+</generatorConfiguration>

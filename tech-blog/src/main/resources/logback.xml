@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds" debug="false">
+    <contextName>tech-blog</contextName>
+    <!-- log_root_dir order: CATALINA_BASE -> CATALINA_HOME -> ..(parent dir) -->
+    <!-- <property name="MANAGER_LOG_ROOT_DIR" value="${CATALINA_BASE:-${CATALINA_HOME:-..}}" /> -->
+    <property name="MANAGER_LOG_ROOT_DIR" value=".."/>
+    <property name="MANAGER_CUR_PROJECT" value="zom-domain"/>
+
+    <!-- <withJansi>true</withJansi> %date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %caller{1..2} %highlight(%-5level) %magenta(%logger) - %cyan(%msg)%n -->
+
+    <!-- 其他配置省略 -->
+    <appender name="manager_console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} %highlight(%-5level): %cyan(%msg) &lt;&lt;&lt; [%thread] %replace(%caller{1..2}){'\s*Caller\+1\s*', ''}
+            </pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+            <!--<onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>-->
+        </filter>
+    </appender>
+
+    <appender name="manager_rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${MANAGER_LOG_ROOT_DIR}/logs-zom/${MANAGER_CUR_PROJECT}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${MANAGER_LOG_ROOT_DIR}/logs-zom/${MANAGER_CUR_PROJECT}.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} %highlight(%-5level): %cyan(%msg) &lt;&lt;&lt; [%thread] %replace(%caller{1..2}){'\s*Caller\+1\s*', ''}
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="manager_err_rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${MANAGER_LOG_ROOT_DIR}/logs-zom/${MANAGER_CUR_PROJECT}.err.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${MANAGER_LOG_ROOT_DIR}/logs-zom/${MANAGER_CUR_PROJECT}.%d{yyyy-MM-dd}.err.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} %highlight(%-5level): %cyan(%msg) &lt;&lt;&lt; [%thread] %replace(%caller{1..2}){'\s*Caller\+1\s*', ''}
+            </pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+            <!--<onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>-->
+        </filter>
+    </appender>
+
+    <!--输出到kafka-->
+    <!--<appender name="KafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder class="com.github.danielwegener.logback.kafka.encoding.LayoutKafkaMessageEncoder">
+            <layout class="net.logstash.logback.layout.LogstashLayout" >
+                <includeContext>false</includeContext>
+                <includeCallerData>true</includeCallerData>
+                <customFields>{"system":"test"}</customFields>
+                <fieldNames class="net.logstash.logback.fieldnames.ShortenedFieldNames"/>
+            </layout>
+            <charset>UTF-8</charset>
+        </encoder>
+        &lt;!&ndash;kafka topic 需要与配置文件里面的topic一致 否则kafka会沉默并鄙视你&ndash;&gt;
+        <topic>applog</topic>
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.HostNameKeyingStrategy" />
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy" />
+        <producerConfig>bootstrap.servers=192.168.1.160:9092</producerConfig>
+    </appender>-->
+
+
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.quartz" level="WARN"/>
+    <logger name="com.mysql" level="WARN"/>
+    <logger name="org.apache.ibatis" level="WARN"/>
+    <logger name="org.apache.kafka" level="INFO"/>
+
+    <!-- zom project default level -->
+    <logger name="com.zom" additivity="false" level="DEBUG">
+        <appender-ref ref="manager_console"/>
+        <appender-ref ref="manager_rollingFile"/>
+        <appender-ref ref="manager_err_rollingFile"/>
+        <!--<appender-ref ref="KafkaAppender"/>-->
+    </logger>
+
+    <root level="DEBUG">
+        <appender-ref ref="manager_console"/>
+        <appender-ref ref="manager_rollingFile"/>
+        <!--<appender-ref ref="KafkaAppender"/>-->
+    </root>
+
+</configuration>

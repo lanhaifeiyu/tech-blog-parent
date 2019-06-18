@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=”http://www.thymeleaf.org”>
+<head>
+    <meta charset="utf-8">
+    <title>iview example</title>
+    <link rel="stylesheet" type="text/css" href="/static/vendor/iview/iview.min.css">
+</head>
+<body>
+<div id="app">
+    <i-button @click="show">Click me!</i-button>
+    <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>
+
+    <!--<Table :data="tableData1" :columns="tableColumns1" stripe></Table>
+    <div style="margin: 10px;overflow: hidden">
+        <div style="float: right;">
+            <Page :total="100" :current="1" @on-change="changePage"></Page>
+        </div>
+    </div>-->
+
+    <i-table :columns="columns1" :data="data1"></i-table>
+
+</div>
+
+<script type="text/javascript" src="/static/vendor/vue/vue.min.js"></script>
+<script type="text/javascript" src="/static/vendor/iview/iview.min.js"></script>
+<script type="text/javascript" src="/static/js/vue/iview.js"></script>
+</body>
+</html>
