@@ -80,7 +80,7 @@ spring:
 eureka:
     client:
         serviceUrl:
-            defaultZone: http://localhost:8761/eureka/
+            defaultZone: http://182.61.49.180:8761/eureka/
     instance:
         prefer-ip-address: true
 #============== kafka ===================
