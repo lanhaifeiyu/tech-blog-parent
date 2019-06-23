@@ -35,7 +35,7 @@ spring:
             enabled: true
             max-request-size: 10000
     thymeleaf:
-        enabled: true
+        enabled: false
         cache: false
     resources:
         chain:
@@ -56,6 +56,12 @@ spring:
         add-properties: true
     mvc:
         static-path-pattern: /resources/static/**
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://182.61.49.180:8761/eureka/
+    #instance:
+    #    prefer-ip-address: true
 #    kafka:
 #        bootstrap-servers: 192.168.1.160:9092
 #        #=============== provider  =======================
@@ -77,12 +83,6 @@ spring:
 #            # 指定消息key和消息体的编解码方式
 #            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 #            value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-eureka:
-    client:
-        serviceUrl:
-            defaultZone: http://182.61.49.180:8761/eureka/
-    instance:
-        prefer-ip-address: true
 #============== kafka ===================
 # 指定kafka 代理地址，可以多个
 #    kafka:
