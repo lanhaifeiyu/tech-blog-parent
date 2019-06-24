@@ -1,4 +1,4 @@
-package com.lhfeiyu.tech.blog.controller.article;
+package com.lhfeiyu.tech.blog.controller.demo;
 
 
 import org.slf4j.Logger;

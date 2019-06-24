@@ -146,5 +146,16 @@ server:
         uri-encoding: utf-8
         resource:
             cache-ttl: 0
+management:
+    endpoints:
+        jmx:
+            exposure:
+                include: '*'
+        web:
+            exposure:
+                include: '*'
+    endpoint:
+        health:
+            show-details: always
 airson:
     hello: 2

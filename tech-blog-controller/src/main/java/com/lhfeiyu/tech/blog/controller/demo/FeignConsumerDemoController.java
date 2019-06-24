@@ -1,4 +1,4 @@
-package com.lhfeiyu.tech.blog.controller.article;
+package com.lhfeiyu.tech.blog.controller.demo;
 
 import com.lhfeiyu.tech.blog.service.FeignConsumerDemoService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -7,7 +7,7 @@
     <!--<properties resource="generator.properties"></properties>-->
     <context id="MySqlTables" targetRuntime="MyBatis3">
         <!-- 自动生成toString方法 -->
-        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
         <!-- 自动生成equals方法和hashcode方法 -->
         <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
