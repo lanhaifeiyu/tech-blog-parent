@@ -13,26 +13,26 @@ import org.springframework.stereotype.Component;
 @Component
 @RefreshScope
 //@ConfigurationProperties(prefix = "tech.config")
-public class ConfigInfoProperties {
+public class TechBlogProviderProperties {
 
     /*private String config;
 
     public String getConfig() {
         return config;
-    }dddd
+    }
 
     public void setConfig(String config) {
         this.config = config;
     }*/
 
-    @Value("${tech.config.env}")
-    private String env;
+    @Value("${tech.blog.config.name}")
+    private String name;
 
-    public String getEnv() {
-        return env;
+    public String getName() {
+        return name;
     }
 
-    public void setEnv(String env) {
-        this.env = env;
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -3,5 +3,9 @@ spring:
         config:
             label: master
             uri: http://localhost:9002
-            name: config-info
+            name: tech-blog-provider
             profile: dev
+            enabled: true
+        bus:
+            refresh:
+                enabled: true

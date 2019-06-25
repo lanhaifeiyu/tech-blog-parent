@@ -56,12 +56,24 @@ spring:
         add-properties: true
     mvc:
         static-path-pattern: /resources/static/**
+    rabbitmq:
+        host: 182.61.49.180
+        port: 5672
+        username: lh
+        password: keep123!
+        cache:
+            connection:
+                mode: channel
+    cloud:
+        bus:
+            trace:
+                enabled: true
 eureka:
     client:
         serviceUrl:
             defaultZone: http://182.61.49.180:8761/eureka/
-    #instance:
-    #    prefer-ip-address: true
+#instance:
+#    prefer-ip-address: true
 #    kafka:
 #        bootstrap-servers: 192.168.1.160:9092
 #        #=============== provider  =======================
