@@ -2,7 +2,7 @@ spring:
     cloud:
         config:
             label: master
-            uri: http://localhost:9002
+            uri: http://182.61.49.180:9002
             name: tech-blog-provider
             profile: dev
             enabled: true
