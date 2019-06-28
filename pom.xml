@@ -260,7 +260,17 @@
         </plugins>
     </build>
 
-    <profiles>
-    </profiles>
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>http://182.61.49.180:8081/repository/maven-public/</url>
+            <snapshots>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+            <releases>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </repository>
+    </repositories>
 
 </project>
