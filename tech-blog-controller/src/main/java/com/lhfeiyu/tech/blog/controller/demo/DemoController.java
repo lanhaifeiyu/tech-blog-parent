@@ -1,11 +1,9 @@
 package com.lhfeiyu.tech.blog.controller.demo;
 
 import com.lhfeiyu.tech.blog.api.article.FeignDemoApi;
-import com.lhfeiyu.tech.blog.dto.CategoryDTO;
 import com.lhfeiyu.tech.blog.service.FeignConsumerDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,6 +40,11 @@ public class DemoController {
     @GetMapping("/feign/consumer/demo")
     public String feign_consumer_demo(@RequestParam(defaultValue = "empty", value = "param") String param) {
         return feignConsumerDemoService.feign_provider_demo(param) + "\n" + new Date().toString();
+    }
+
+    @GetMapping("/sleuth/consumer/demo")
+    public String sleuth_consumer_demo(@RequestParam(defaultValue = "empty", value = "name") String name) {
+        return feignConsumerDemoService.sleuth_provider_demo(name) + "\n" + new Date().toString();
     }
 
 }
