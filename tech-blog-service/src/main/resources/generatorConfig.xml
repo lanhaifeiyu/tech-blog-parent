@@ -21,8 +21,8 @@
         </commentGenerator>-->
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/tech_blog?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=GMT%2B8"
-                        userId="root" password="root">
+                        connectionURL="jdbc:mysql://182.61.49.180:3306/tech_blog?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=GMT%2B8"
+                        userId="lh" password="Keep123!">
             <property name="nullCatalogMeansCurrent" value="true"/>
             <!--注释中使用数据库中的备注-->
             <!--<property name="useInformationSchema" value="true"></property>-->
@@ -57,6 +57,18 @@
             <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
             <!--<ignoreColumn column="FRED" />-->
             <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        </table>
+
+        <table tableName="tech_user" domainObjectName="User" mapperName="UserMapper" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="tech_article" domainObjectName="Article" mapperName="ArticleMapper" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="tech_login_log" domainObjectName="LoginLog" mapperName="LoginLogMapper" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
 
     </context>

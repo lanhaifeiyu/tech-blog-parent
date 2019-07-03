@@ -18,7 +18,7 @@ public class BaseModel {
     /**
      * 状态
      */
-    private Byte status;
+    private Integer state;
 
     /**
      * 创建用户id
@@ -33,7 +33,7 @@ public class BaseModel {
     /**
      * 创建时间
      */
-    private Date createDate;
+    private Date createTime;
 
     /**
      * 编辑用户id
@@ -46,8 +46,8 @@ public class BaseModel {
     private String editUserName;
 
     /**
-     * 编辑时间
+     * 更新时间
      */
-    private Date editDate;
+    private Date updateTime;
 
 }
