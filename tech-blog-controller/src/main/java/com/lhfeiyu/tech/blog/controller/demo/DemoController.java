@@ -1,6 +1,6 @@
 package com.lhfeiyu.tech.blog.controller.demo;
 
-import com.lhfeiyu.tech.blog.api.article.FeignDemoApi;
+import com.lhfeiyu.tech.blog.api.demo.FeignDemoApi;
 import com.lhfeiyu.tech.blog.service.FeignConsumerDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

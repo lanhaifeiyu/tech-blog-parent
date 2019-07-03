@@ -1,4 +1,4 @@
-package com.lhfeiyu.tech.blog.api.article;
+package com.lhfeiyu.tech.blog.api.demo;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lhfeiyu.tech.blog.dto.CategoryDTO;
