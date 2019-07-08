@@ -77,7 +77,7 @@ spring:
     rabbitmq:
         host: 182.61.49.180
         port: 5672
-        username: lh
+        username: lh_blog
         password: keep123!
         cache:
             connection:
